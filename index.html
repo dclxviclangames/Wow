@@ -34,9 +34,6 @@
             border-radius: 5px;
             margin-top: 15px;
             transition: background-color 0.3s;
-            cursor: pointer; /* Делаем курсор как у ссылки */
-            border: none; /* Убираем стандартную границу кнопки */
-            font-size: 1em; /* Делаем шрифт как у обычного текста */
         }
         .btn:hover {
             background-color: #ff4d94;
@@ -117,8 +114,8 @@
             <div class="container">
                 <h1>Добро пожаловать в Wow You Shine!</h1>
                 <p>Мы предлагаем лучшие услуги по уходу за собой. Почувствуйте себя звездой!</p>
-                <!-- Используем кнопку с JS обработчиком -->
-                <button class="btn" onclick="openWhatsApp()">Записаться в WhatsApp</button>
+                <!-- Кнопка с прямой ссылкой на Telegram -->
+                <a href="t.me" class="btn" target="_blank">Записаться в Telegram</a>
             </div>
         </section>
 
@@ -148,10 +145,12 @@
             <div class="container">
                 <h2>Контакты и запись</h2>
                 <p><strong>Адрес:</strong> г. Москва, ул. Примерная, 10</p>
+                <!-- Обновил контактную информацию для Telegram -->
+                <p><strong>Telegram:</strong> <a href="t.me" target="_blank">@wow_you_shine</a></p>
                 <p><strong>Телефон:</strong> <a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
                 <p><strong>Время работы:</strong> Ежедневно с 10:00 до 20:00</p>
-                <!-- Используем кнопку с JS обработчиком -->
-                <button class="btn" onclick="openWhatsApp()">Написать в WhatsApp</button>
+                <!-- Кнопка в контактах тоже ведет на Telegram -->
+                <a href="t.me" class="btn" target="_blank">Написать в Telegram</a>
             </div>
         </section>
     </main>
@@ -162,31 +161,6 @@
             <p>&copy; 2025 Wow You Shine. Все права защищены.</p>
         </div>
     </footer>
-
-    <script>
-        function openWhatsApp() {
-            const phoneNumber = '74951234567'; // Ваш номер телефона без +
-            const message = encodeURIComponent('Здравствуйте, хочу записаться на процедуру!');
-            
-            // Попытка использовать глубокую ссылку (для мобильных приложений)
-            const deepLink = `whatsapp://send?phone=${phoneNumber}&text=${message}`;
-            
-            // Альтернативная веб-ссылка
-            const webLink = `api.whatsapp.com{phoneNumber}&text=${message}`;
-
-            // Пытаемся открыть сначала через deep link
-            window.location.href = deepLink;
-
-            // Если deep link не сработал через короткое время, переходим на веб-версию
-            setTimeout(() => {
-                // Если пользователь еще на той же странице (т.е. приложение не открылось),
-                // открываем веб-версию в новом окне/вкладке
-                if (document.visibilityState === 'visible') {
-                   window.open(webLink, '_blank');
-                }
-            }, 500); // Задержка 0.5 секунды
-        }
-    </script>
 
 </body>
 </html>
