@@ -34,6 +34,9 @@
             border-radius: 5px;
             margin-top: 15px;
             transition: background-color 0.3s;
+            cursor: pointer; /* Делаем курсор как у ссылки */
+            border: none; /* Убираем стандартную границу кнопки */
+            font-size: 1em; /* Делаем шрифт как у обычного текста */
         }
         .btn:hover {
             background-color: #ff4d94;
@@ -114,8 +117,8 @@
             <div class="container">
                 <h1>Добро пожаловать в Wow You Shine!</h1>
                 <p>Мы предлагаем лучшие услуги по уходу за собой. Почувствуйте себя звездой!</p>
-                <!-- Кнопка с прямой ссылкой на Telegram в новой вкладке -->
-                <a href="t.me" class="btn" target="_blank">Записаться в Telegram</a>
+                <!-- Используем кнопку с JS обработчиком -->
+                <button class="btn" onclick="openTelegram()">Записаться в Telegram</button>
             </div>
         </section>
 
@@ -149,8 +152,8 @@
                 <p><strong>Telegram:</strong> <a href="t.me" target="_blank">@wow_you_shine</a></p>
                 <p><strong>Телефон:</strong> <a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
                 <p><strong>Время работы:</strong> Ежедневно с 10:00 до 20:00</p>
-                <!-- Кнопка в контактах тоже ведет на Telegram в новой вкладке -->
-                <a href="t.me" class="btn" target="_blank">Написать в Telegram</a>
+                <!-- Используем кнопку с JS обработчиком -->
+                <button class="btn" onclick="openTelegram()">Написать в Telegram</button>
             </div>
         </section>
     </main>
@@ -161,6 +164,15 @@
             <p>&copy; 2025 Wow You Shine. Все права защищены.</p>
         </div>
     </footer>
+    
+    <!-- СКРИПТ ДЛЯ ОТКРЫТИЯ ССЫЛКИ -->
+    <script>
+        function openTelegram() {
+            const telegramURL = 't.me'; // Ваше имя пользователя Telegram
+            // window.open() гарантирует открытие в новой вкладке
+            window.open(telegramURL, '_blank');
+        }
+    </script>
 
 </body>
 </html>
